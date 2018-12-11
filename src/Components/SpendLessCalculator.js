@@ -79,16 +79,10 @@ const spendLessCalculator = props => {
         <Row>
           <Col sm={{ size: "9", offset: 3 }} className="text-right">
             <a href="#">Was this helpful?</a>
-            <a
-              href="#"
-              className="text-secondary"
-              onClick={() => props.voteClicked("yes")}
-            >
+            <a href="#" className="text-secondary" onClick={() => props.voteClicked("yes")}>
               <FontAwesomeIcon icon={["far", "thumbs-up"]} />
             </a>
-            <a href="#"
-              onClick={() => props.voteClicked('no')}
-            >
+            <a href="#" onClick={() => props.voteClicked("no")}>
               <FontAwesomeIcon
                 icon={["far", "thumbs-down"]}
                 flip="horizontal"

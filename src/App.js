@@ -15,18 +15,24 @@ class App extends Component {
     this.calculateSavings();
   }
   
+  /* Read data from local storage if available, otherwise read it from data.js file */
+  /* Assign additional properties to the state */
   state = Object.assign(JSON.parse(localStorage.getItem('data')), {savings: 0, showVote: true}) || Object.assign(data, {savings: 0, showVote: true});
   
   /* Calculate savings icome / 12 - all expenditures */
   calculateSavings = () => {
+
+    /* Use reduce to get amout for each income */
     const income = this.state.incomes.reduce(function (total, income) {
       return total + parseInt(income.amount);
     }, 0) / 12;
 
+    /* Use reduce to get amout for each expenditure */
     const expenditures = this.state.expenditures.reduce(function (total, expenditure) {
       return total + parseInt(expenditure.amount);
     }, 0);
 
+    /* calculate savings (income tax is not icluded here) */
     const savings = income - expenditures;
     
     this.setState({
@@ -36,31 +42,37 @@ class App extends Component {
 
   /* Trigger expenditure change (text and range input) */
   onExpenditureChange = (e) => {
+    /* Find index of the expenditure changed based on its data-name */
     const index = this.state.expenditures.findIndex(x => x.name === e.target.dataset.name);
     this.state.expenditures[index][e.target.name] = e.target.value;
     
     this.setState({
       expenditures: this.state.expenditures
     },() => {
+       /* Save state in local storage */
       localStorage.setItem('data', JSON.stringify(this.state));
+      /* calculate savings after state change*/
       this.calculateSavings();
     });
   }
 
   /* Trigger income change */
   onIncomeChange = (e) => {
+    /* Find index of the income changed based on its data-name */
     const index = this.state.incomes.findIndex(x => x.name === e.target.dataset.name);
     this.state.incomes[index][e.target.name] = e.target.value;
     
     this.setState({
       incomes: this.state.incomes
     },() => {
+      /* Save state in local storage */
       localStorage.setItem('data', JSON.stringify(this.state));
+      /* calculate savings after state change */
       this.calculateSavings();
     });
   }
 
-  /* Trigger income change */
+  /* Hide vote when clicked */
   onVoteClicked = (vote) => {
     console.log("voted for " + vote)
     this.setState({
