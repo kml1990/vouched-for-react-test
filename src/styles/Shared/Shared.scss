@@ -1,9 +1,16 @@
+.range-output {
+  position: absolute;
+  top: -1rem;
+  font-size: 0.7rem;
+}
+
 input[type="range"] {
   -webkit-appearance: none;
   outline: none;
   background: $lightGrey;
-  height: 6px;
-  width: 200px;
+  height: 0.35rem;
+  width: 100%;
+  min-width: 6rem;
   border-radius: 5px;
   border: 0;
   &::-webkit-slider-thumb {

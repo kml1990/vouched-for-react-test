@@ -24,32 +24,43 @@ body {
       margin-bottom: 2rem;
       box-shadow: 0 3px 2px -2px rgba(150, 150, 150, 0.8);
       -webkit-box-shadow: 2px 2px 5px 0px rgba(150, 150, 150, 0.8);
-    }
-    .card-header {
-      text-transform: uppercase;
-      color: #fff;
-      text-align: center;
-      font-weight: 600;
-      padding: 0.15rem;
-      border: 0;
-      border-radius: 0;
-      background-color: $primary;
-    }
-    .card-footer {
-      border: 0;
-      background: none;
-      a {
-        margin-left: 0.75rem;
-        font-size: 1.75rem;
-        &:first-child {
-          text-decoration: underline;
-          font-size: 1rem;
+      .card-header {
+        text-transform: uppercase;
+        color: #fff;
+        text-align: center;
+        font-weight: 600;
+        padding: 0.15rem;
+        border: 0;
+        border-radius: 0;
+        background-color: $primary;
+      }
+      .card-body {
+        padding-bottom: 0;
+      }
+      .card-footer {
+        border: 0;
+        background: none;
+        &.show {
+          visibility: visible;
+          transition: visibility 0.5s ease-in-out;
+        }
+        &.hide {
+          visibility: hidden;
+        }
+        a {
+          margin-left: 0.75rem;
+          font-size: 1.75rem;
+          &:first-child {
+            text-decoration: underline;
+            font-size: 1rem;
+          }
         }
       }
     }
     input[type="text"] {
       border: 0.05rem solid $primary;
       border-radius: 0.5rem;
+      height: calc(2rem + 2px);
     }
     label {
       font-size: 70%;

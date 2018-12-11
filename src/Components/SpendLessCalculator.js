@@ -25,67 +25,46 @@ const spendLessCalculator = props => {
             </p>
           </Col>
         </Row>
+        {props.expenditures.map(expenditure => (
+          <FormGroup key={expenditure.name} className="App__range">
+            <Label className="font-weight-bold col-sm-6" for="mortgage">
+              {expenditure.name}
+            </Label>
+            <div className="position-relative float-right col-sm-6">
+              <span
+                className="range-output"
+                style={{ left: expenditure.amount / 15 + 10 }}
+              >
+                £{expenditure.amount}
+              </span>
+              <input
+                type="range"
+                className="range"
+                name="amount"
+                data-name={expenditure.name}
+                value={expenditure.amount}
+                min="0"
+                max="2000"
+                step="1"
+                onChange={props.expenditureChange}
+              />
+            </div>
+          </FormGroup>
+        ))}
 
-        <FormGroup className="App__range">
-          <Label className="font-weight-bold col-sm-6" for="mortgage">
-            Mortgage
-          </Label>
-          <input
-            sm="6"
-            type="range"
-            id="mortgage"
-            className="range col-sm-6"
-            name="mortgage"
-            value="15"
-            min="0"
-            max="20"
-            step="1"
-          />
-        </FormGroup>
-
-        <FormGroup className="App__range">
-          <Label className="font-weight-bold col-sm-6" for="bills">
-            Bills
-          </Label>
-          <input
-            xs="6"
-            type="range"
-            id="bills"
-            className="range col-sm-6"
-            name="bills"
-            value="15"
-            min="0"
-            max="20"
-            step="1"
-          />
-        </FormGroup>
-
-        <FormGroup className="App__range">
-          <Label className="font-weight-bold col-sm-6" for="generalSpending">
-            General Spending
-          </Label>
-          <input
-            type="range"
-            id="generalSpending"
-            className="range col-sm-6"
-            name="generalSpending"
-            value="10"
-            min="0"
-            max="20"
-            step="1"
-          />
-        </FormGroup>
         <Row>
           <Col>
             <strong>
               This means you're saving{" "}
-              <span className="text-secondary">£230 </span>per month
+              <span className="text-secondary">£{props.savings} </span>per month
             </strong>
           </Col>
         </Row>
         <Row>
           <Col sm={{ size: "10", offset: 1 }}>
             <Button
+              href="https://www.vouchedfor.co.uk/"
+              target="_blank"
               outline
               block
               color="secondary"
@@ -96,14 +75,20 @@ const spendLessCalculator = props => {
           </Col>
         </Row>
       </CardBody>
-      <CardFooter>
+      <CardFooter className={props.vote ? "show" : "hide"}>
         <Row>
           <Col sm={{ size: "9", offset: 3 }} className="text-right">
             <a href="#">Was this helpful?</a>
-            <a href="#" className="text-secondary">
+            <a
+              href="#"
+              className="text-secondary"
+              onClick={() => props.voteClicked("yes")}
+            >
               <FontAwesomeIcon icon={["far", "thumbs-up"]} />
             </a>
-            <a href="">
+            <a href="#"
+              onClick={() => props.voteClicked('no')}
+            >
               <FontAwesomeIcon
                 icon={["far", "thumbs-down"]}
                 flip="horizontal"

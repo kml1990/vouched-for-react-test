@@ -19,127 +19,88 @@ const incomeAndSpend = props => {
       <CardBody>
         <Form>
           <h6 className="mb-1 font-weight-bold">Annual income</h6>
-          <Row>
-            <Col sm="6">
-              <FormGroup className="mb-1">
-                <Label for="annualSalary">Annual Salary</Label>
-                <Input
-                  type="text"
-                  name="annualSalary"
-                  id="annualSalary"
-                  placeholder="£500,300"
-                />
-              </FormGroup>
-            </Col>
-            <Col sm="3">
-              <FormGroup className="mb-1">
-                <Label for="fromAge">From age</Label>
-                <Input
-                  type="text"
-                  name="fromAge"
-                  id="fromAge"
-                  placeholder="26"
-                />
-              </FormGroup>
-            </Col>
-            <Col sm="3">
-              <FormGroup className="mb-1">
-                <Label for="toAge">To Age</Label>
-                <Input type="text" name="toAge" id="toAge" placeholder="67" />
-              </FormGroup>
-            </Col>
-          </Row>
+          {props.incomes.map(income => (
+            <Row key={income.name}>
+              <Col sm="6">
+                <FormGroup className="mb-1">
+                  <Label for="amount">{income.name}</Label>
+                  <Input
+                    type="text"
+                    name="amount"
+                    data-name={income.name}
+                    value={income.amount}
+                    onChange={props.incomeChange}
+                  />
+                </FormGroup>
+              </Col>
+              <Col sm="3">
+                <FormGroup className="mb-1">
+                  <Label for="from_age">From age</Label>
+                  <Input
+                    type="text"
+                    name="from_age"
+                    data-name={income.name}
+                    value={income.from_age}
+                    onChange={props.incomeChange}
+                  />
+                </FormGroup>
+              </Col>
+              <Col sm="3">
+                <FormGroup className="mb-1">
+                  <Label for="to_age">To Age</Label>
+                  <Input
+                    type="text"
+                    name="to_age"
+                    data-name={income.name}
+                    value={income.to_age}
+                    onChange={props.incomeChange}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+          ))}
+
           <h6 className="mb-1 mt-2 font-weight-bold">Monthly spending</h6>
-          <Row>
-            <Col sm="6">
-              <FormGroup className="mb-1">
-                <Label for="annualSalary">Annual Salary</Label>
-                <Input
-                  type="text"
-                  name="annualSalary"
-                  id="annualSalary"
-                  placeholder="£500,300"
-                />
-              </FormGroup>
-            </Col>
-            <Col sm="3">
-              <FormGroup className="mb-1">
-                <Label for="fromAge">From age</Label>
-                <Input
-                  type="text"
-                  name="fromAge"
-                  id="fromAge"
-                  placeholder="26"
-                />
-              </FormGroup>
-            </Col>
-            <Col sm="3">
-              <FormGroup className="mb-1">
-                <Label for="toAge">To Age</Label>
-                <Input type="text" name="toAge" id="toAge" placeholder="67" />
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row>
-            <Col sm="6">
-              <FormGroup className="mb-1">
-                <Label for="annualSalary">Annual Salary</Label>
-                <Input
-                  type="text"
-                  name="annualSalary"
-                  id="annualSalary"
-                  placeholder="£500,300"
-                />
-              </FormGroup>
-            </Col>
-            <Col sm="3">
-              <FormGroup className="mb-1">
-                <Label for="fromAge">From age</Label>
-                <Input
-                  type="text"
-                  name="fromAge"
-                  id="fromAge"
-                  placeholder="26"
-                />
-              </FormGroup>
-            </Col>
-            <Col sm="3">
-              <FormGroup className="mb-1">
-                <Label for="toAge">To Age</Label>
-                <Input type="text" name="toAge" id="toAge" placeholder="67" />
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row>
-            <Col sm="6">
-              <FormGroup className="mb-1">
-                <Label for="annualSalary">Annual Salary</Label>
-                <Input
-                  type="text"
-                  name="annualSalary"
-                  id="annualSalary"
-                  placeholder="£500,300"
-                />
-              </FormGroup>
-            </Col>
-            <Col sm="3">
-              <FormGroup className="mb-1">
-                <Label for="fromAge">From age</Label>
-                <Input
-                  type="text"
-                  name="fromAge"
-                  id="fromAge"
-                  placeholder="26"
-                />
-              </FormGroup>
-            </Col>
-            <Col sm="3">
-              <FormGroup className="mb-1">
-                <Label for="toAge">To Age</Label>
-                <Input type="text" name="toAge" id="toAge" placeholder="67" />
-              </FormGroup>
-            </Col>
-          </Row>
+          {props.expenditures.map(expenditure => (
+            <Row key={expenditure.name}>
+              <Col sm="6">
+                <FormGroup className="mb-1">
+                  <Label for="amount">{expenditure.name}</Label>
+                  <Input
+                    type="text"
+                    name="amount"
+                    data-name={expenditure.name}
+                    value={expenditure.amount}
+                    onChange={props.expenditureChange}
+                  />
+                </FormGroup>
+              </Col>
+              <Col sm="3">
+                <FormGroup className="mb-1">
+                  <Label for="from_age">From age</Label>
+                  <Input
+                    type="text"
+                    name="from_age"
+                    data-name={expenditure.name}
+                    value={expenditure.from_age}
+                    onChange={props.expenditureChange}
+                  />
+                </FormGroup>
+              </Col>
+              <Col sm="3">
+                <FormGroup className="mb-1">
+                  <Label for="to_age">To Age</Label>
+                  <Input
+                    type="text"
+                    name="to_age"
+                    data-name={expenditure.name}
+                    value={expenditure.to_age}
+                    onChange={props.expenditureChange}
+                  />
+                </FormGroup>
+              </Col>
+            </Row>
+          ))}
         </Form>
       </CardBody>
     </Card>
