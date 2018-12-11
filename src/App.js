@@ -17,7 +17,7 @@ class App extends Component {
   
   /* Read data from local storage if available, otherwise read it from data.js file */
   /* Assign additional properties to the state */
-  state = Object.assign(JSON.parse(localStorage.getItem('data')), {savings: 0, showVote: true}) || Object.assign(data, {savings: 0, showVote: true});
+  state = JSON.parse(localStorage.getItem('data')) !== null ? Object.assign(JSON.parse(localStorage.getItem('data')), {savings: 0, showVote: true}) : Object.assign(data, {savings: 0, showVote: true});
   
   /* Calculate savings icome / 12 - all expenditures */
   calculateSavings = () => {
@@ -33,7 +33,7 @@ class App extends Component {
     }, 0);
 
     /* calculate savings (income tax is not icluded here) */
-    const savings = income - expenditures;
+    const savings = parseInt(income - expenditures);
     
     this.setState({
       savings: savings
