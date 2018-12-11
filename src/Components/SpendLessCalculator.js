@@ -52,14 +52,12 @@ const spendLessCalculator = props => {
           </FormGroup>
         ))}
 
-        <Row>
-          <Col>
-            <strong>
-              This means you're saving{" "}
-              <span className="text-secondary">£{props.savings} </span>per month
-            </strong>
-          </Col>
-        </Row>
+        <FormGroup>
+          <strong>
+            This means you're saving{" "}
+            <span className="text-secondary">£{props.savings} </span>per month
+          </strong>
+        </FormGroup>
         <Row>
           <Col sm={{ size: "10", offset: 1 }}>
             <Button
@@ -79,7 +77,11 @@ const spendLessCalculator = props => {
         <Row>
           <Col sm={{ size: "9", offset: 3 }} className="text-right">
             <a href="#">Was this helpful?</a>
-            <a href="#" className="text-secondary" onClick={() => props.voteClicked("yes")}>
+            <a
+              href="#"
+              className="text-secondary"
+              onClick={() => props.voteClicked("yes")}
+            >
               <FontAwesomeIcon icon={["far", "thumbs-up"]} />
             </a>
             <a href="#" onClick={() => props.voteClicked("no")}>
