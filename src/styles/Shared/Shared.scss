@@ -1,0 +1,34 @@
+input[type="range"] {
+  -webkit-appearance: none;
+  outline: none;
+  background: $lightGrey;
+  height: 6px;
+  width: 200px;
+  border-radius: 5px;
+  border: 0;
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: $primary;
+  }
+}
+
+/* FIREFOX */
+input[type="range"]::-moz-range-thumb {
+  border: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  background: $primary;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: $primary;
+  border-radius: 5px;
+}

@@ -1,0 +1,13 @@
+/* Changing bootstrap settings */
+$theme-colors: (
+    "primary":    #01576b,
+    "secondary":  #88c93d,
+    "success":    #2ECC71,
+    "info":       #1E8BC3,
+    "warning":    #F89406,
+    "danger":     #F03434,
+    "light":      #EEEEEE,
+    "dark":       #6C7A89
+);
+
+@import "./node_modules/bootstrap/scss/bootstrap.scss";

@@ -1,0 +1,67 @@
+@import "./Shared/Bootstrap.scss";
+@import "./Shared/Variables.scss";
+@import "./Shared/Shared.scss";
+
+body {
+  background-color: #f5f8fc;
+}
+
+.App {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  width: calc(100% - 33vw);
+  margin-left: 33vw;
+  color: $primary-text;
+  &__card {
+    display: flex;
+    flex-direction: column;
+    .card {
+      height: 100%;
+      border-radius: 0;
+      border: 0.1rem solid $primary;
+      margin-bottom: 2rem;
+      box-shadow: 0 3px 2px -2px rgba(150, 150, 150, 0.8);
+      -webkit-box-shadow: 2px 2px 5px 0px rgba(150, 150, 150, 0.8);
+    }
+    .card-header {
+      text-transform: uppercase;
+      color: #fff;
+      text-align: center;
+      font-weight: 600;
+      padding: 0.15rem;
+      border: 0;
+      border-radius: 0;
+      background-color: $primary;
+    }
+    .card-footer {
+      border: 0;
+      background: none;
+      a {
+        margin-left: 0.75rem;
+        font-size: 1.75rem;
+        &:first-child {
+          text-decoration: underline;
+          font-size: 1rem;
+        }
+      }
+    }
+    input[type="text"] {
+      border: 0.05rem solid $primary;
+      border-radius: 0.5rem;
+    }
+    label {
+      font-size: 70%;
+      margin-bottom: 0.1rem;
+    }
+  }
+  &__range {
+    margin-bottom: 1rem;
+    label {
+      font-size: 0.85rem;
+    }
+  }
+}
+
+/* Use bootstrap built in styles */
